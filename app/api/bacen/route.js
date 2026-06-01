@@ -2,12 +2,20 @@
 // Series de "Taxa media de juros das operacoes de credito" - Pessoas Fisicas (% a.a.).
 export const dynamic = "force-dynamic";
 
+// Series SGS "Taxa media de juros das operacoes de credito - PF" (% a.a.).
+// Confira/ajuste os codigos conforme sua fonte habitual.
 const SERIES = {
-  consignadoINSS:    25471, // Consignado INSS
-  consignadoPrivado: 25469, // Consignado setor privado
-  consignadoPublico: 25470, // Consignado setor publico
-  consignadoTotal:   20714, // Consignado total
-  veiculos:          25468, // Aquisicao de veiculos
+  consignadoINSS:        25471, // Consignado INSS
+  consignadoPrivado:     25469, // Consignado setor privado
+  consignadoPublico:     25470, // Consignado setor publico
+  consignadoTotal:       20714, // Consignado total
+  veiculos:              25468, // Aquisicao de veiculos (CDC)
+  creditoPessoal:        25472, // Credito pessoal nao consignado
+  cartaoRotativo:        20751, // Cartao de credito rotativo total
+  cartaoParcelado:       20752, // Cartao de credito parcelado
+  chequeEspecial:        20753, // Cheque especial
+  imobiliarioMercado:    25497, // Financiamento imobiliario com taxas de mercado
+  // estudantil (FIES): taxa regulada - informe manualmente
 };
 
 // "yyyy-mm-dd" ou "dd/mm/aaaa" -> {d, m, y}

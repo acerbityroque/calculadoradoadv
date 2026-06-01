@@ -226,3 +226,59 @@ details summary { list-style: revert; }
 
 /* crédito do desenvolvedor no rodapé de impressão */
 .print-foot .dev-credit { margin-top: 2px; font-size: 9px; color: #64748b; }
+
+/* ===== Combobox pesquisável ===== */
+.combo { position: relative; }
+.combo-input { width: 100%; border: 1px solid var(--border); border-radius: 8px; padding: 10px 30px 10px 12px; font-size: 14px; background: #fff; }
+.combo-input:focus { outline: 2px solid var(--primary); border-color: var(--primary); }
+.combo-caret { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; font-size: 12px; }
+.combo-list { position: absolute; z-index: 40; top: calc(100% + 4px); left: 0; right: 0; max-height: 260px; overflow-y: auto; background: #fff; border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+.combo-opt { padding: 9px 12px; font-size: 14px; cursor: pointer; }
+.combo-opt:hover { background: var(--panel-bg); }
+.combo-opt.sel { background: var(--light, #eef2ff); font-weight: 600; }
+.combo-empty { padding: 9px 12px; font-size: 12px; color: var(--muted); }
+
+/* ===== Preview lateral ===== */
+.with-preview { display: flex; gap: 20px; align-items: flex-start; }
+.preview { width: 250px; flex-shrink: 0; position: sticky; top: 16px; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+.preview-title { font-size: 13px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 10px; }
+.prev-row { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; padding: 6px 0; border-bottom: 1px dashed var(--border); }
+.prev-row span { color: var(--muted); }
+.prev-row b { text-align: right; }
+.prev-row.total b { color: var(--primary); font-size: 15px; }
+.prev-foot { font-size: 11px; color: var(--muted); margin-top: 10px; }
+@media (max-width: 860px) { .with-preview { flex-direction: column; } .preview { width: 100%; position: static; } }
+
+/* ===== Ajuda de modalidades ===== */
+.ajuda-modal { background: var(--panel-bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-top: 8px; font-size: 12.5px; line-height: 1.5; }
+.ajuda-grp { margin-bottom: 8px; }
+.ajuda-grp strong { color: var(--primary); display: block; margin-bottom: 2px; }
+.ajuda-item { color: #334155; margin: 2px 0; }
+
+/* ===== Seções do parecer ===== */
+.sub-sec { font-size: 13px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: .4px; margin: 18px 0 8px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+.laudo table.sched td { vertical-align: top; }
+tr.rowpaga { background: #fafaf0; }
+
+/* ===== Semáforo ===== */
+.semaforo { border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin: 10px 0 4px; }
+.semaforo.red { background: #fef2f2; border-color: #fecaca; }
+.semaforo.amber { background: #fffbeb; border-color: #fde68a; }
+.semaforo.green { background: #f0fdf4; border-color: #bbf7d0; }
+.sem-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.sem-tag { font-weight: 800; font-size: 14px; padding: 4px 12px; border-radius: 999px; }
+.sem-tag.red { background: var(--red-bg); color: var(--red); }
+.sem-tag.amber { background: var(--amber-bg); color: var(--amber); }
+.sem-tag.green { background: var(--green-bg); color: var(--green); }
+.sem-mult { font-weight: 800; font-size: 16px; }
+.sem-bar { position: relative; height: 16px; border-radius: 8px; overflow: hidden; background: #e5e7eb; }
+.sem-zone { position: absolute; top: 0; bottom: 0; }
+.sem-zone.green { background: #bbf7d0; } .sem-zone.amber { background: #fde68a; } .sem-zone.red { background: #fecaca; }
+.sem-mark { position: absolute; top: -3px; bottom: -3px; width: 3px; }
+.sem-mark.media { background: #16a34a; } .sem-mark.limiar { background: #d97706; } .sem-mark.taxa { background: #dc2626; width: 4px; }
+.sem-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 12px; color: #334155; }
+.sem-legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+.dot.media { background: #16a34a; } .dot.limiar { background: #d97706; } .dot.taxa { background: #dc2626; }
+
+/* impressão: abrir tabelas dentro de <details> */
+@media print { details > summary { display: none; } details table.sched { display: table !important; } }
