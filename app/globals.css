@@ -1,0 +1,228 @@
+:root {
+  --bg: #0f172a;
+  --sidebar: #14306b;
+  --sidebar-item: #1e40af;
+  --sidebar-item-hover: #2563eb;
+  --sidebar-item-active: #1d4ed8;
+  --panel: #ffffff;
+  --panel-bg: #f1f5f9;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --primary: #1d4ed8;
+  --primary-d: #1e40af;
+  --green: #16a34a;
+  --green-bg: #dcfce7;
+  --red: #dc2626;
+  --red-bg: #fee2e2;
+  --amber: #d97706;
+  --amber-bg: #fef3c7;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--panel-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.layout { display: flex; min-height: 100vh; }
+
+/* Sidebar */
+.sidebar {
+  width: 280px; flex-shrink: 0;
+  background: var(--sidebar);
+  color: #fff;
+  display: flex; flex-direction: column;
+  padding: 0 0 24px;
+}
+.brand {
+  padding: 22px 22px 18px; border-bottom: 1px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; gap: 12px;
+}
+.brand .seal {
+  width: 40px; height: 40px; border-radius: 8px; flex-shrink: 0;
+  background: #fff; color: var(--sidebar);
+  display: grid; place-items: center; font-weight: 800; font-size: 18px;
+}
+.brand h1 { font-size: 14px; line-height: 1.25; font-weight: 700; letter-spacing: .3px; }
+.brand small { display: block; font-weight: 400; opacity: .75; font-size: 11px; margin-top: 2px; }
+
+.nav { padding: 16px 14px; display: flex; flex-direction: column; gap: 8px; }
+.nav-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; opacity: .6; padding: 6px 8px 2px; }
+.nav button {
+  text-align: left; border: 0; cursor: pointer;
+  background: var(--sidebar-item); color: #fff;
+  padding: 12px 14px; border-radius: 8px; font-size: 14px; font-weight: 600;
+  transition: background .15s, transform .05s;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav button:hover { background: var(--sidebar-item-hover); }
+.nav button.active { background: #fff; color: var(--sidebar); box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+.nav button .ico { font-size: 16px; }
+
+/* Main */
+.main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.topbar {
+  background: #fff; border-bottom: 1px solid var(--border);
+  padding: 16px 28px; display: flex; align-items: center; justify-content: space-between;
+}
+.topbar h2 { font-size: 18px; font-weight: 700; }
+.topbar .sub { color: var(--muted); font-size: 13px; }
+
+.content { padding: 28px; max-width: 1000px; width: 100%; }
+
+.card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 14px;
+  padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.04); margin-bottom: 20px;
+}
+.card h3 { font-size: 16px; margin-bottom: 4px; }
+.card .hint { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 720px){ .grid { grid-template-columns: 1fr; } .sidebar{ width: 220px; } }
+
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.field label { font-size: 13px; font-weight: 600; color: #334155; }
+.field input, .field select {
+  border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
+  font-size: 14px; background: #fff; color: var(--text); width: 100%;
+}
+.field input:focus, .field select:focus { outline: 2px solid var(--primary); border-color: var(--primary); }
+.field .help { font-size: 11px; color: var(--muted); }
+
+.btn {
+  background: var(--primary); color: #fff; border: 0; cursor: pointer;
+  padding: 11px 22px; border-radius: 8px; font-size: 14px; font-weight: 700;
+}
+.btn:hover { background: var(--primary-d); }
+.btn.ghost { background: #e2e8f0; color: #334155; }
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+.btn-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+/* Resultado */
+.result { margin-top: 8px; }
+.result h3 { margin-bottom: 14px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.kpi { background: var(--panel-bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+.kpi .lbl { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.kpi .val { font-size: 20px; font-weight: 800; }
+.kpi.big .val { font-size: 24px; }
+
+.badge { display: inline-block; padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; margin-top: 14px; }
+.badge.red { background: var(--red-bg); color: var(--red); }
+.badge.green { background: var(--green-bg); color: var(--green); }
+.badge.amber { background: var(--amber-bg); color: var(--amber); }
+
+.alert { padding: 12px 14px; border-radius: 8px; font-size: 13px; margin-top: 12px; }
+.alert.warn { background: var(--amber-bg); color: #92400e; }
+.alert.err { background: var(--red-bg); color: #991b1b; }
+
+table.sched { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 14px; }
+table.sched th, table.sched td { border-bottom: 1px solid var(--border); padding: 7px 10px; text-align: right; }
+table.sched th { background: var(--panel-bg); text-align: right; font-weight: 700; }
+table.sched th:first-child, table.sched td:first-child { text-align: center; }
+
+.disclaimer { color: var(--muted); font-size: 12px; line-height: 1.5; margin-top: 18px; padding: 14px; background: #fff; border: 1px dashed var(--border); border-radius: 10px; }
+
+/* ---- grupos da sidebar ---- */
+.nav-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 6px; }
+
+/* ---- controle do fator de abusividade ---- */
+.fator { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.fator-lbl { font-size: 12px; color: var(--muted); font-weight: 600; }
+.seg { display: inline-flex; align-items: center; gap: 4px; background: var(--panel-bg); border: 1px solid var(--border); border-radius: 999px; padding: 3px; }
+.seg button { border: 0; background: transparent; cursor: pointer; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; color: #334155; }
+.seg button.on { background: var(--primary); color: #fff; }
+.fator-cur { display: inline-flex; align-items: center; gap: 2px; font-size: 13px; font-weight: 700; color: #334155; padding-left: 4px; }
+.fator-cur input { width: 52px; border: 1px solid var(--border); border-radius: 6px; padding: 4px 6px; font-size: 13px; text-align: right; }
+
+/* ---- inputs de tabela (RowsEditor) ---- */
+.rowin { border: 1px solid var(--border); border-radius: 6px; padding: 7px 9px; font-size: 14px; width: 100%; }
+.rowin:focus { outline: 2px solid var(--primary); border-color: var(--primary); }
+.btn.small { padding: 7px 12px; font-size: 13px; }
+table.sched td input { margin: 0; }
+
+/* ---- checkbox ---- */
+.check { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #334155; margin-top: 4px; cursor: pointer; }
+.check input { width: 16px; height: 16px; }
+
+details summary { list-style: revert; }
+
+/* ---- botão exportar (no canto do resultado) ---- */
+.card.result { position: relative; }
+.export-btn {
+  position: absolute; top: 16px; right: 16px;
+  background: #fff; color: var(--primary); border: 1.5px solid var(--primary);
+  border-radius: 8px; padding: 7px 14px; font-size: 13px; font-weight: 700; cursor: pointer;
+}
+.export-btn:hover { background: var(--primary); color: #fff; }
+
+/* ---- crédito do autor: rodapé da sidebar + flutuante ---- */
+.credit {
+  margin-top: auto; padding: 14px 18px; font-size: 11px; line-height: 1.5;
+  color: rgba(255,255,255,.78); border-top: 1px solid rgba(255,255,255,.12);
+}
+.credit strong { color: #fff; font-weight: 700; }
+.credit-float {
+  position: fixed; right: 14px; bottom: 12px; z-index: 50;
+  background: rgba(20,48,107,.92); color: #fff; border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px; padding: 7px 14px; font-size: 11px; font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0,0,0,.18); backdrop-filter: blur(4px);
+}
+
+/* ---- elementos só de impressão (escondidos na tela) ---- */
+.print-only { display: none; }
+
+/* ======================= IMPRESSÃO / PDF ======================= */
+@media print {
+  @page { margin: 16mm 14mm 20mm; }
+  body { background: #fff; }
+  /* esconder navegação, formulários e tudo que não é resultado */
+  .sidebar, .topbar, .no-print, .credit-float, .btn-row, .alert.err { display: none !important; }
+  .card:not(.result) { display: none !important; }
+  .layout, .main, .content { display: block !important; width: 100% !important; }
+  .content { padding: 0 !important; max-width: 100% !important; }
+  .card.result { box-shadow: none !important; border: 1px solid #cbd5e1 !important; }
+
+  /* cabeçalho do documento (só impressão) */
+  .print-only { display: block !important; }
+  .print-header {
+    border-bottom: 2px solid #1d4ed8; padding-bottom: 8px; margin-bottom: 14px;
+  }
+  .print-header .ph-title { font-size: 16px; font-weight: 800; color: #14306b; }
+  .print-header .ph-sub { font-size: 11px; color: #475569; margin-top: 2px; }
+
+  /* marca d'água diagonal em cada página */
+  .watermark {
+    display: block !important;
+    position: fixed; top: 42%; left: 0; right: 0; text-align: center;
+    transform: rotate(-26deg); transform-origin: center;
+    font-size: 30px; font-weight: 800; letter-spacing: 1px;
+    color: rgba(29,78,216,0.10); z-index: 9999; pointer-events: none;
+  }
+  /* assinatura no rodapé de cada página */
+  .print-foot {
+    display: block !important;
+    position: fixed; bottom: 6mm; left: 0; right: 0;
+    border-top: 1px solid #cbd5e1; padding-top: 6px;
+    font-size: 10px; color: #475569; text-align: center;
+  }
+  .print-foot strong { color: #14306b; }
+}
+
+/* ---- controles do topo (responsável + critério) ---- */
+.topbar { flex-wrap: wrap; gap: 12px; }
+.topbar-ctrls { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.nome-ctrl { display: flex; align-items: center; gap: 8px; }
+.nome-input {
+  border: 1px solid var(--border); border-radius: 8px; padding: 7px 11px;
+  font-size: 13px; min-width: 220px;
+}
+.nome-input:focus { outline: 2px solid var(--primary); border-color: var(--primary); }
+.credit a { color: rgba(255,255,255,.92); }
+
+/* crédito do desenvolvedor no rodapé de impressão */
+.print-foot .dev-credit { margin-top: 2px; font-size: 9px; color: #64748b; }
